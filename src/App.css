@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -14,18 +16,24 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ff3b4f; /* Deep red color */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'Courier New', monospace; /* Monospace font for the header */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #f8e6e6; /* Light pink color for the text */
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.expanded-image {
+  transform: scale(1.2); /* Change the scale value as desired to control the amount of expansion */
+  transition: transform 0.3s ease; /* Add smooth transition on hover */
 }
 
 @keyframes App-logo-spin {

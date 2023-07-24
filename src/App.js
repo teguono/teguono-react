@@ -1,24 +1,74 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './Navbar';
+import MBVAlbumCover from './mbv.jpg';
+import LovelessAlbumCover from './loveless.jpg';
+import LovelessAudio from './loveless-audio.mp3';
+import MBVAudio from './mbv-audio.mp3';
 
 function App() {
+  const [isStyleChanged, setIsStyleChanged] = useState(false);
+  const [showLovelessText, setShowLovelessText] = useState(false);
+  const [showMBVText, setShowMBVText] = useState(false);
+  const [isLovelessPlaying, setIsLovelessPlaying] = useState(false);
+  const [isMBVPlaying, setIsMBVPlaying] = useState(false);
+
+  const handleImageClick = (imageType) => {
+    if (imageType === 'loveless') {
+      setShowLovelessText((prevState) => !prevState);
+      setIsLovelessPlaying(!isLovelessPlaying);
+      setIsMBVPlaying(false); // Stop MBV audio
+    } else if (imageType === 'mbv') {
+      setShowMBVText((prevState) => !prevState);
+      setIsMBVPlaying(!isMBVPlaying);
+      setIsLovelessPlaying(false); // Stop Loveless audio
+    }
+    setIsStyleChanged(!isStyleChanged);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={`App ${isStyleChanged ? 'style-changed' : ''}`}>
+        <header className="App-header">
+          <Navbar />
+          <p>
+            my bloody valentine.
+          </p>
+          <img
+            src={LovelessAlbumCover}
+            alt="Loveless Album"
+            onClick={() => handleImageClick('loveless')}
+            className={showLovelessText ? 'expanded-image' : ''}
+          />
+          {showLovelessText && <p>loveless</p>}
+          <br />
+          <img
+            src={MBVAlbumCover}
+            alt="MBV Album"
+            onClick={() => handleImageClick('mbv')}
+            className={showMBVText ? 'expanded-image' : ''}
+          />
+          {showMBVText && <p>mbv</p>}
+
+          {/* Loveless Audio */}
+          {isLovelessPlaying && (
+            <audio autoPlay loop>
+              <source src={LovelessAudio} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
+
+          {/* MBV Audio */}
+          {isMBVPlaying && (
+            <audio autoPlay loop>
+              <source src={MBVAudio} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
+        </header>
+      </div>
+    </Router>
   );
 }
 
