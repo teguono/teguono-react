@@ -19,10 +19,12 @@ function App() {
       setShowLovelessText((prevState) => !prevState);
       setIsLovelessPlaying(!isLovelessPlaying);
       setIsMBVPlaying(false); // Stop MBV audio
+      setShowMBVText(false); // Hide MBV text
     } else if (imageType === 'mbv') {
       setShowMBVText((prevState) => !prevState);
       setIsMBVPlaying(!isMBVPlaying);
       setIsLovelessPlaying(false); // Stop Loveless audio
+      setShowLovelessText(false); // Hide Loveless text
     }
     setIsStyleChanged(!isStyleChanged);
   };
