@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from './Navbar';
-import MBVAlbumCover from './mbv.jpg';
-import LovelessAlbumCover from './loveless.jpg';
-import LovelessAudio from './loveless-audio.mp3';
-import MBVAudio from './mbv-audio.mp3';
+import Navbar from '../Navbar/Navbar';
+import MBVAlbumCover from '../../assets/images/mbv.jpg';
+import LovelessAlbumCover from '../../assets/images/loveless.jpg';
+import LovelessAudio from '../../assets/audio/loveless-audio.mp3';
+import MBVAudio from '../../assets/audio/mbv-audio.mp3';
 
 function App() {
   const [isStyleChanged, setIsStyleChanged] = useState(false);
