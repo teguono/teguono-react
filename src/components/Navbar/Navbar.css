@@ -31,4 +31,8 @@
   .nav-link:hover {
     color: #ff1493; /* Pink text color on hover */
   }
+
+  .active-link {
+    color: #ff1493; /* Pink text color for the active link */
+  }
   

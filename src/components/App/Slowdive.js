@@ -1,10 +1,11 @@
-// Slowdive.js
 import React from 'react';
+import Navbar from '../Navbar/Navbar';
 import './Slowdive.css';
 
 function Slowdive() {
   return (
     <div className="slowdive-container">
+        <Navbar />
       <h1 className="slowdive-title">Slowdive</h1>
       <p className="slowdive-description">
         Slowdive is an English shoegaze band formed in Reading, England, in 1989.

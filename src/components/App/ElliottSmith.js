@@ -1,9 +1,11 @@
 import React from 'react';
+import Navbar from '../Navbar/Navbar';
 import './ElliottSmith.css';
 
 function ElliottSmith() {
   return (
     <div className="elliott-smith-container">
+        <Navbar />
       <h1 className="elliott-smith-title">Elliott Smith</h1>
       <p className="elliott-smith-description">
         Elliott Smith was an American singer-songwriter known for his

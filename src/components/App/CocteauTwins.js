@@ -1,19 +1,45 @@
-import React from 'react';
 import './CocteauTwins.css';
+import React, { useState } from 'react';
+import Navbar from '../Navbar/Navbar';
+import CTAlbumCover from '../../assets/images/cocteau-twins.jpg';
+import CTAudio from '../../assets/audio/cocteau-twins-audio.mp3';
 
 function CocteauTwins() {
-    return (
-      <div className="cocteau-container">
-        <h2 className="cocteau-title">Cocteau Twins</h2>
-        <p className="cocteau-description">
-          Cocteau Twins were a Scottish rock band active from 1979 to 1997. They were known for their
-          dreamy and ethereal sound, characterized by Elizabeth Fraser's distinctive vocals and Robin
-          Guthrie's atmospheric guitar work.
+  const [isStyleChanged, setIsStyleChanged] = useState(false);
+  const [showCTText, setShowCTText] = useState(false);
+  const [isCTPlaying, setIsCTPlaying] = useState(false);
+
+  const handleImageClick = () => {
+    setShowCTText((prevState) => !prevState);
+    setIsCTPlaying(!isCTPlaying);
+    setIsStyleChanged(!isStyleChanged);
+  };
+
+  return (
+    <div className={`CocteauTwins ${isStyleChanged ? 'style-changed' : ''}`}>
+      <header className="CocteauTwins-header">
+        <Navbar />
+        <p>
+          Cocteau Twins
         </p>
-        {/* Add more content related to Cocteau Twins here */}
-      </div>
-    );
-  }
-  
-  export default CocteauTwins;
-  
+        <img
+          src={CTAlbumCover}
+          alt="Cocteau Twins Album"
+          onClick={handleImageClick}
+          className={showCTText ? 'expanded-image' : ''}
+        />
+        {showCTText && <p>Heaven or Las Vegas</p>}
+
+        {/* Cocteau Twins Audio */}
+        {isCTPlaying && (
+          <audio autoPlay loop>
+            <source src={CTAudio} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
+      </header>
+    </div>
+  );
+}
+
+export default CocteauTwins;
