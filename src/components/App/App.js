@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import MBVAlbumCover from '../../assets/images/mbv.jpg';
 import LovelessAlbumCover from '../../assets/images/loveless.jpg';
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className={`App ${isStyleChanged ? 'style-changed' : ''}`}>
         <header className="App-header">
           <Navbar />
@@ -74,11 +74,11 @@ function App() {
         </header>
         <Routes>
           <Route path="/cocteau-twins" element={<CocteauTwins/>} />
-          <Route path="/slowdive" component={<Slowdive/>} />
-          <Route path="/elliott-smith" component={<ElliottSmith/>} />
-        </Routes>
+          <Route path="/slowdive" element={<Slowdive/>} />
+          <Route path="/elliott-smith" element={<ElliottSmith/>} />
+      </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

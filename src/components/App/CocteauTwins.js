@@ -1,5 +1,5 @@
 import React from 'react';
-import './CocteauTwins.css'; // Create the CSS file for styling the CocteauTwins page
+import './CocteauTwins.css';
 
 function CocteauTwins() {
     return (
