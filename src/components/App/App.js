@@ -1,11 +1,14 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import MBVAlbumCover from '../../assets/images/mbv.jpg';
 import LovelessAlbumCover from '../../assets/images/loveless.jpg';
 import LovelessAudio from '../../assets/audio/loveless-audio.mp3';
 import MBVAudio from '../../assets/audio/mbv-audio.mp3';
+import CocteauTwins from './CocteauTwins';
+import Slowdive from './Slowdive';
+import ElliottSmith from './ElliottSmith';
 
 function App() {
   const [isStyleChanged, setIsStyleChanged] = useState(false);
@@ -69,6 +72,11 @@ function App() {
             </audio>
           )}
         </header>
+        <Routes>
+          <Route path="/cocteau-twins" element={<CocteauTwins/>} />
+          <Route path="/slowdive" component={<Slowdive/>} />
+          <Route path="/elliott-smith" component={<ElliottSmith/>} />
+        </Routes>
       </div>
     </Router>
   );

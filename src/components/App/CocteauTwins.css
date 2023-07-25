@@ -1,0 +1,19 @@
+/* CocteauTwins.css */
+.cocteau-container {
+    font-family: 'Lora', serif;
+    color: #ffffff; /* White text color */
+    background-color: #4f4a6b; /* Dark purple background color */
+    padding: 20px;
+  }
+  
+  .cocteau-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .cocteau-description {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  

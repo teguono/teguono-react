@@ -1,0 +1,18 @@
+.elliott-smith-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  .elliott-smith-title {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .elliott-smith-description {
+    color: #555;
+    font-size: 18px;
+  }
+  
