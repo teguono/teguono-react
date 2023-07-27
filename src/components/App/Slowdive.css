@@ -1,19 +1,23 @@
 /* Slowdive.css */
-.slowdive-container {
-    background-color: #f2f2f2;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .slowdive-title {
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .slowdive-description {
-    color: #555;
-    font-size: 18px;
-  }
-  
+.Slowdive {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.Slowdive-header {
+  background-color: #c9ebf0; /* Light blue color */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Helvetica', sans-serif; /* Sans-serif font for the header */
+  font-size: calc(10px + 2vmin);
+  color: #2a3132; /* Dark blue color for the text */
+}
+
+.expanded-image {
+  transform: scale(1.2); /* Change the scale value as desired to control the amount of expansion */
+  transition: transform 0.3s ease; /* Add smooth transition on hover */
+}

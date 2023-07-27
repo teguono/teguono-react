@@ -17,11 +17,11 @@ function Slowdive() {
   };
 
   return (
-    <div className={`App ${isStyleChanged ? 'style-changed' : ''}`}>
-      <header className="App-header">
+    <div className={`Slowdive ${isStyleChanged ? 'style-changed' : ''}`}>
+      <header className="Slowdive-header">
         <Navbar />
         <p>
-          Souvlaki
+          Slowdive
         </p>
         <img
           src={SDAlbumCover}
@@ -29,7 +29,7 @@ function Slowdive() {
           onClick={handleImageClick}
           className={showSDText ? 'expanded-image' : ''}
         />
-        {showSDText && <p>slowdive</p>}
+        {showSDText && <p>Souvlaki</p>}
 
         {/* Slowdive Audio */}
         {isSDPlaying && (
