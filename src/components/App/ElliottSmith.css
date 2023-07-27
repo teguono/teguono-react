@@ -1,18 +1,23 @@
-.elliott-smith-container {
-    background-color: #f7f7f7;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  .elliott-smith-title {
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .elliott-smith-description {
-    color: #555;
-    font-size: 18px;
-  }
-  
+/* ElliottSmith.css */
+.ElliottSmith {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.ElliottSmith-header {
+  background-color: #d1bada; /* Light purple color */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif; /* Sans-serif font for the header */
+  font-size: calc(10px + 2vmin);
+  color: #241b2b; /* Dark purple color for the text */
+}
+
+.expanded-image {
+  transform: scale(1.2); /* Change the scale value as desired to control the amount of expansion */
+  transition: transform 0.3s ease; /* Add smooth transition on hover */
+}

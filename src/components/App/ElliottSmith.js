@@ -1,18 +1,44 @@
-import React from 'react';
-import Navbar from '../Navbar/Navbar';
+// ElliottSmith.js
 import './ElliottSmith.css';
+import React, { useState } from 'react';
+import Navbar from '../Navbar/Navbar';
+import ESAlbumCover from '../../assets/images/either-or.jpg';
+import ESAudio from '../../assets/audio/elliott-smith-audio.mp3';
 
 function ElliottSmith() {
+  const [isStyleChanged, setIsStyleChanged] = useState(false);
+  const [showESText, setShowESText] = useState(false);
+  const [isESPlaying, setIsESPlaying] = useState(false);
+
+  const handleImageClick = () => {
+    setShowESText((prevState) => !prevState);
+    setIsESPlaying(!isESPlaying);
+    setIsStyleChanged(!isStyleChanged);
+  };
+
   return (
-    <div className="elliott-smith-container">
+    <div className={`ElliottSmith ${isStyleChanged ? 'style-changed' : ''}`}>
+      <header className="ElliottSmith-header">
         <Navbar />
-      <h1 className="elliott-smith-title">Elliott Smith</h1>
-      <p className="elliott-smith-description">
-        Elliott Smith was an American singer-songwriter known for his
-        introspective and heartfelt music. He rose to prominence in the 1990s with
-        albums like "Either/Or" and "XO." His delicate and melancholic songs touched
-        the hearts of many, and his talent left a lasting impact on the music world.
-      </p>
+        <p>
+          Elliott Smith
+        </p>
+        <img
+          src={ESAlbumCover}
+          alt="Elliott Smith Album"
+          onClick={handleImageClick}
+          className={showESText ? 'expanded-image' : ''}
+        />
+        {showESText && <p>Either/Or</p>}
+
+        {/* Elliott Smith Audio */}
+        {isESPlaying && (
+          <audio autoPlay loop>
+            <source src={ESAudio} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
+      </header>
     </div>
   );
 }

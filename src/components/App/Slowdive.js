@@ -1,19 +1,44 @@
-import React from 'react';
-import Navbar from '../Navbar/Navbar';
+// Slowdive.js
 import './Slowdive.css';
+import React, { useState } from 'react';
+import Navbar from '../Navbar/Navbar';
+import SDAlbumCover from '../../assets/images/slowdive.jpg';
+import SDAudio from '../../assets/audio/slowdive-audio.mp3';
 
 function Slowdive() {
+  const [isStyleChanged, setIsStyleChanged] = useState(false);
+  const [showSDText, setShowSDText] = useState(false);
+  const [isSDPlaying, setIsSDPlaying] = useState(false);
+
+  const handleImageClick = () => {
+    setShowSDText((prevState) => !prevState);
+    setIsSDPlaying(!isSDPlaying);
+    setIsStyleChanged(!isStyleChanged);
+  };
+
   return (
-    <div className="slowdive-container">
+    <div className={`App ${isStyleChanged ? 'style-changed' : ''}`}>
+      <header className="App-header">
         <Navbar />
-      <h1 className="slowdive-title">Slowdive</h1>
-      <p className="slowdive-description">
-        Slowdive is an English shoegaze band formed in Reading, England, in 1989.
-        They are known for their dreamy and ethereal sound characterized by swirling
-        guitars and soothing vocals. The band gained critical acclaim in the early 1990s
-        with albums like "Souvlaki" and "Just for a Day." Their music continues to be
-        influential and beloved by fans of shoegaze and dream pop.
-      </p>
+        <p>
+          Souvlaki
+        </p>
+        <img
+          src={SDAlbumCover}
+          alt="Slowdive Album"
+          onClick={handleImageClick}
+          className={showSDText ? 'expanded-image' : ''}
+        />
+        {showSDText && <p>slowdive</p>}
+
+        {/* Slowdive Audio */}
+        {isSDPlaying && (
+          <audio autoPlay loop>
+            <source src={SDAudio} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
+      </header>
     </div>
   );
 }
