@@ -3,6 +3,7 @@ import './ElliottSmith.css';
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import ESAlbumCover from '../../assets/images/either-or.jpg';
+import XOAlbumCover from '../../assets/images/xo.jpeg';
 import ESAudio from '../../assets/audio/elliott-smith-audio.mp3';
 
 function ElliottSmith() {
@@ -25,7 +26,7 @@ function ElliottSmith() {
         </p>
         <img
           src={ESAlbumCover}
-          alt="Elliott Smith Album"
+          alt="Either Or"
           onClick={handleImageClick}
           className={showESText ? 'expanded-image' : ''}
         />
@@ -38,6 +39,14 @@ function ElliottSmith() {
             Your browser does not support the audio element.
           </audio>
         )}
+
+        <img
+          src={XOAlbumCover}
+          alt="XO"
+          onClick={handleImageClick}
+          className={showESText ? 'expanded-image' : ''}
+        />
+        {showESText && <p>Either/Or</p>}
       </header>
     </div>
   );
